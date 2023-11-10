@@ -1,13 +1,14 @@
 import { LoaderFunctionArgs } from "@remix-run/node";
 
-// interface Webfinger {
-// 	links: {
-// 		rel: string;
-// 		type: string;
-// 		href: string;
-// 	};
-// 	subject: string;
-// }
+interface Webfinger {
+	subject: string;
+	aliases: string[];
+	links: {
+		rel: string;
+		type: string;
+		href: string;
+	}[];
+}
 
 export async function loader({ request }: LoaderFunctionArgs) {
 	const url = new URL(request.url);
@@ -23,7 +24,16 @@ export async function loader({ request }: LoaderFunctionArgs) {
 		});
 	}
 
-	return new Response(JSON.stringify({ teste: "teste" }), {
+	const username = /(?<=:)(.*?)(?=@)/.exec(resourceParam ?? "")?.[0];
+
+	const data: Webfinger = await fetch(
+		`https://api.wildleague.org/api/webfinger?username=${username}`,
+		{
+			method: "GET",
+		}
+	).then((response) => response.json());
+
+	return new Response(JSON.stringify(data), {
 		status: 200,
 		headers: { "Content-Type": "application/json" },
 	});
