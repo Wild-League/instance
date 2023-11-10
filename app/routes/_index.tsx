@@ -1,7 +1,7 @@
-import { useState } from "react";
-import "./styles/index.css";
+import React, { useState } from "react";
+import "../styles/index.css";
 
-function App() {
+export default function Home() {
 	const [email, setEmail] = useState("");
 
 	const submit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -44,5 +44,3 @@ function App() {
 		</main>
 	);
 }
-
-export default App;
