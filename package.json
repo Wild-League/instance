@@ -2,14 +2,19 @@
   "name": "wildleague",
   "private": true,
   "version": "0.0.0",
+  "engines": {
+    "node": "18.0.0"
+  },
+  "type": "module",
   "scripts": {
-    "start": "node server.js",
+    "start": "remix-serve ./build/index.js",
     "dev": "vite --port 3000",
-    "build": "tsc && vite build",
+    "build": "npx remix build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@remix-run/css-bundle": "^2.2.0",
     "@remix-run/node": "^2.2.0",
     "@remix-run/react": "^2.2.0",
     "@remix-run/serve": "^2.2.0",
