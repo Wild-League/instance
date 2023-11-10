@@ -1,3 +1,4 @@
+// http://nodeinfo.diaspora.software/schema.html - version 2.1
 interface NodeInfo {
 	software: {
 		homepage: string;
