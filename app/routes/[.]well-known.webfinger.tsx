@@ -1,6 +1,7 @@
 import { LoaderFunctionArgs } from "@remix-run/node";
 
 interface Webfinger {
+	status: number;
 	subject: string;
 	aliases: string[];
 	links: {
@@ -33,8 +34,10 @@ export async function loader({ request }: LoaderFunctionArgs) {
 		}
 	).then((response) => response.json());
 
-	return new Response(JSON.stringify(data), {
-		status: 200,
+	const response = Object.keys(data).length === 0 ? null : JSON.stringify(data);
+
+	return new Response(response, {
+		status: response === null ? 404 : 200,
 		headers: { "Content-Type": "application/json" },
 	});
 }

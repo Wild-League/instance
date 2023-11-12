@@ -1,0 +1,18 @@
+.container {
+	padding: 0 2rem;
+}
+
+.container h1 {
+	font-size: clamp(1.2rem, 5vw, 10rem);
+	margin: 0.6rem 0;
+}
+
+.container p {
+	text-align: justify;
+	font-size: clamp(1rem, 2vw, 10rem);
+	line-height: 1.5;
+}
+
+.container a {
+	color: #38b399;
+}

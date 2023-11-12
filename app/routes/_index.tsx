@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/index.css";
+import styles from "../styles/waitlist.module.css";
 
 export default function Home() {
 	const [email, setEmail] = useState("");
@@ -19,8 +19,8 @@ export default function Home() {
 	};
 
 	return (
-		<main>
-			<h1>Wild League</h1>
+		<main className={styles.container}>
+			<h1 className={styles.title}>Wild League</h1>
 			<p>Gaming experience across the Fediverse.</p>
 
 			<div>
@@ -30,7 +30,7 @@ export default function Home() {
 				</p>
 			</div>
 
-			<form onSubmit={(e) => submit(e)}>
+			<form className={styles.form} onSubmit={(e) => submit(e)}>
 				<label htmlFor="email">Join the waitlist:</label>
 				<input
 					onChange={(e) => setEmail(e.target.value)}

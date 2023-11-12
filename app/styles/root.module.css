@@ -1,0 +1,38 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	color: #F1F1F1;
+	background-color: rgb(30 29 29);
+	font-family: 'Open Sans', sans-serif;
+
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+p, label {
+	font-size: clamp(1.2rem, 2vw, 10rem);
+	line-height: 1.5;
+}
+
+h1 {
+	font-size: clamp(2rem, 5vw, 10rem);
+	margin-top: 0.6rem;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin: 1rem 0;
+}
+
+nav a {
+	color: #F1F1F1;
+}
