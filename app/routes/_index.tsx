@@ -2,15 +2,40 @@ import React, { useState } from "react";
 import styles from "../styles/waitlist.module.css";
 import { MetaFunction } from "@remix-run/react";
 
+import type { LinksFunction } from "@remix-run/node";
+
+export const links: LinksFunction = () => {
+	return [
+		{
+			rel: "icon",
+			href: "/favicon.ico",
+			type: "image/png",
+		},
+	];
+};
+
 export const meta: MetaFunction = () => {
 	return [
+		{
+			name: "og:title",
+			content: "[Wild League] - Waitlist",
+		},
+		{
+			name: "og:description",
+			content:
+				"Join the waitlist for Wild League and keep up to date with the latest news.",
+		},
+		{
+			name: "og:image",
+			content: "/logo.png",
+		},
 		{
 			name: "twitter:title",
 			content: "[Wild League] - Waitlist",
 		},
 		{
 			name: "twitter:card",
-			content: "summary_large_image",
+			content: "summary",
 		},
 		{
 			name: "twitter:site",
