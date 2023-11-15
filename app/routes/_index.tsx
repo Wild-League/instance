@@ -1,5 +1,36 @@
 import React, { useState } from "react";
 import styles from "../styles/waitlist.module.css";
+import { MetaFunction } from "@remix-run/react";
+
+export const meta: MetaFunction = () => {
+	return [
+		{
+			name: "twitter:title",
+			content: "[Wild League] - Waitlist",
+		},
+		{
+			name: "twitter:card",
+			content: "summary_large_image",
+		},
+		{
+			name: "twitter:site",
+			content: "@_wildleague",
+		},
+		{
+			name: "twitter:creator",
+			content: "@ropoko_",
+		},
+		{
+			name: "twitter:description",
+			content:
+				"Join the waitlist for Wild League and keep up to date with the latest news.",
+		},
+		{
+			name: "twitter:image",
+			content: "/logo.png",
+		},
+	];
+};
 
 export default function Home() {
 	const [email, setEmail] = useState("");
