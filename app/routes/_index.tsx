@@ -63,6 +63,8 @@ export default function Home() {
 	const submit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
+		if (email === "") return;
+
 		await fetch("https://api.wildleague.org/api/waitlist", {
 			method: "POST",
 			headers: {
