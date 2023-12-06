@@ -13,7 +13,7 @@
 	width: 100vw;
 }
 
-.container > div p > span {
+.container > p > span {
 	color: #38b399;
 	font-weight: bold;
 }

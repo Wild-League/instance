@@ -79,14 +79,9 @@ export default function Home() {
 	return (
 		<main className={styles.container}>
 			<h1 className={styles.title}>Wild League</h1>
-			<p>Gaming experience across the Fediverse.</p>
-
-			<div>
-				<p>Gaming isn't just about playing</p>
-				<p>
-					Gaming is about <span>community</span>{" "}
-				</p>
-			</div>
+			<p>
+				A <span> community </span> gaming experience.
+			</p>
 
 			<form className={styles.form} onSubmit={(e) => submit(e)}>
 				<label htmlFor="email">Join the waitlist:</label>
