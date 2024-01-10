@@ -16,7 +16,9 @@ interface Actor {
 }
 
 export async function loader({ params }: LoaderFunctionArgs) {
-	const { user: username } = params;
+	const { user } = params;
+
+	const username = user?.replace("@", "");
 
 	const data: Actor = await fetch(
 		`https://api.wildleague.org/api/user/${username}/json`,

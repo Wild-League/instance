@@ -3,6 +3,7 @@ import styles from "../styles/waitlist.module.css";
 import { MetaFunction } from "@remix-run/react";
 
 import type { LinksFunction } from "@remix-run/node";
+import Header from "../components/Header/Header";
 
 export const links: LinksFunction = () => {
 	return [
@@ -78,6 +79,7 @@ export default function Home() {
 
 	return (
 		<main className={styles.container}>
+			<Header />
 			<h1 className={styles.title}>Wild League</h1>
 			<p>
 				A <span> community </span> gaming experience.

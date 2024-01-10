@@ -1,0 +1,22 @@
+.post {
+	width: 100%;
+	color: white;;
+	border: 1px solid #ccc;
+	padding: 0.6rem;
+	margin: 1rem 0;
+}
+
+.post header {
+	margin-bottom: 1rem;
+}
+
+.post footer {
+	margin-top: 1rem;
+	padding: 0.4rem 0;
+	border-top: 1px solid #ccc;
+	font-size: 12px;
+}
+
+.displayName {
+	display: block;
+}
