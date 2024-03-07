@@ -2,8 +2,9 @@ import { json } from "@remix-run/node";
 import { Form, Link, useLoaderData } from "@remix-run/react";
 
 import styles from "../styles/community.module.css";
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import Post from "../components/Post/Post";
+import { useState } from "react";
 
 export interface Post {
 	id: string;
@@ -14,20 +15,45 @@ export interface Post {
 	content: string;
 	in_reply_to_post_id?: number;
 	in_reply_to_user_id?: number;
+	username: string;
+	display_name: string;
 }
+
+interface PostForm {
+	content: string;
+}
+
+type Page = "posts" | "cards";
 
 export async function loader() {
 	const posts: Post[] = await fetch(`http://localhost:9090/api/post`, {
 		method: "GET",
 	}).then((response) => response.json());
 
-	return json({ posts });
+	const cards: any[] = await fetch(`http://localhost:9090/api/card`, {
+		method: "GET",
+	}).then((response) => response.json());
+
+	return json({ cards, posts });
 }
 
 export default function Community() {
-	const { posts } = useLoaderData<typeof loader>();
+	const { cards, posts } = useLoaderData<typeof loader>();
 
-	const { register } = useForm();
+	const { register, handleSubmit } = useForm<PostForm>();
+
+	const [state, setState] = useState<Page>("posts");
+
+	const submit: SubmitHandler<PostForm> = async (data) => {
+		// await fetch(`http://localhost:9090/api/post`, {
+		// 	method: "POST",
+		// 	body: JSON.stringify({ content: data.content }),
+		// 	headers: {
+		// 		"Content-Type": "application/json",
+		// 	},
+		// });
+		await fetch(`http://localhost:9090/api/post/federate`);
+	};
 
 	const handleTextHeight = (e: React.FormEvent<HTMLTextAreaElement>) => {
 		e.currentTarget.style.height = "";
@@ -44,11 +70,19 @@ export default function Community() {
 						alt="WildLeague Logo"
 					/>
 				</Link>
+				<nav>
+					<button onClick={() => setState("posts")} type="button">
+						Posts
+					</button>
+					<button onClick={() => setState("cards")} type="button">
+						Cards
+					</button>
+				</nav>
 			</section>
 			<section className={styles.posts}>
-				<Form>
+				<Form onSubmit={handleSubmit(submit)}>
 					<textarea
-						{...register("post", { required: true })}
+						{...register("content", { required: true })}
 						className={styles.textbox}
 						placeholder="write something"
 						onInput={handleTextHeight}
@@ -57,12 +91,23 @@ export default function Community() {
 						Post
 					</button>
 				</Form>
-				<div className={styles.listpost}>
-					{posts.map((post) => (
-						// fix ts errors
-						<Post key={post.id} post={post} />
-					))}
-				</div>
+				{state === "posts" ? (
+					<div className={styles.listPosts}>
+						{posts.length &&
+							posts.map((post) => (
+								// TODO: fix ts error
+								<Post key={post.id} post={post} />
+							))}
+					</div>
+				) : (
+					<div className={styles.listCards}>
+						{cards.length &&
+							cards.map((card) => (
+								<p>{card.name}</p>
+								// <Post key={post.id} post={post} />
+							))}
+					</div>
+				)}
 			</section>
 			<section className={styles.profile}>
 				<strong className={styles.username}>Hello, $username</strong>

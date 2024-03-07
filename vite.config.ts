@@ -1,6 +1,6 @@
-import { unstable_vitePlugin as remix } from "@remix-run/dev";
+import { vitePlugin } from "@remix-run/dev";
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  plugins: [remix()]
+  plugins: [vitePlugin()]
 })

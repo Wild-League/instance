@@ -1,19 +1,11 @@
-import {
-	Links,
-	LiveReload,
-	Meta,
-	Outlet,
-	Scripts,
-	ScrollRestoration,
-} from "@remix-run/react";
+import { Links, Meta, Outlet, Scripts } from "@remix-run/react";
 
-import { cssBundleHref } from "@remix-run/css-bundle";
 import type { LinksFunction } from "@remix-run/node";
 
-import "./styles/root.module.css";
+import stylesheet from "./index.css?url";
 
 export const links: LinksFunction = () => [
-	...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
+	{ rel: "stylesheet", href: stylesheet },
 ];
 
 export default function App() {
@@ -26,10 +18,7 @@ export default function App() {
 			</head>
 			<body>
 				<Outlet />
-
-				<ScrollRestoration />
 				<Scripts />
-				<LiveReload />
 			</body>
 		</html>
 	);

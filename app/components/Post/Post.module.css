@@ -10,13 +10,29 @@
 	margin-bottom: 1rem;
 }
 
+.post header .username {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.post header .username:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.post .content {
+	cursor: pointer;
+}
+
 .post footer {
 	margin-top: 1rem;
-	padding: 0.4rem 0;
+	padding-top: 0.5rem;
 	border-top: 1px solid #ccc;
 	font-size: 12px;
 }
 
 .displayName {
 	display: block;
+	margin-top: 0.2rem;
 }

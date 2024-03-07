@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "../styles/waitlist.module.css";
+// import styles from "../styles/waitlist.module.css";
 import { MetaFunction } from "@remix-run/react";
 
 import type { LinksFunction } from "@remix-run/node";
@@ -66,7 +66,7 @@ export default function Home() {
 
 		if (email === "") return;
 
-		await fetch("https://api.wildleague.org/api/waitlist", {
+		await fetch("https://api.wildleague.org/v1/waitlist/", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -78,14 +78,14 @@ export default function Home() {
 	};
 
 	return (
-		<main className={styles.container}>
+		<main>
 			<Header />
-			<h1 className={styles.title}>Wild League</h1>
+			<h1 className="text-red">Wild League</h1>
 			<p>
 				A <span> community </span> gaming experience.
 			</p>
 
-			<form className={styles.form} onSubmit={(e) => submit(e)}>
+			<form onSubmit={(e) => submit(e)}>
 				<label htmlFor="email">Join the waitlist:</label>
 				<input
 					onChange={(e) => setEmail(e.target.value)}

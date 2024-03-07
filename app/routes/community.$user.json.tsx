@@ -1,5 +1,11 @@
 import { LoaderFunctionArgs } from "@remix-run/node";
 
+interface PublicKey {
+	id: string;
+	owner: string;
+	publicKeyPem: string;
+}
+
 // https://www.w3.org/TR/activitypub/#actor-objects
 interface Actor {
 	"@context": string[];
@@ -13,6 +19,7 @@ interface Actor {
 	preferredUsername: string;
 	name: string;
 	summary: string;
+	publicKet: PublicKey;
 }
 
 export async function loader({ params }: LoaderFunctionArgs) {
@@ -29,6 +36,6 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 	return new Response(JSON.stringify(data), {
 		status: 200,
-		headers: { "Content-Type": "application/json" },
+		headers: { "Content-Type": "application/activity+json" },
 	});
 }
