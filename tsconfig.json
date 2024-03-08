@@ -20,7 +20,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["./app/env.d.ts", "**/*.ts", "**/*.tsx", "tailwind.config.mjs"],
+  "include": ["./app/env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "dist"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

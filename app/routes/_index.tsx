@@ -80,7 +80,7 @@ export default function Home() {
 	return (
 		<main>
 			<Header />
-			<h1 className="text-red">Wild League</h1>
+			<h1 className="text-orange-600">Wild League</h1>
 			<p>
 				A <span> community </span> gaming experience.
 			</p>
