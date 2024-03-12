@@ -1,22 +1,16 @@
 import { Link, useNavigate } from "@remix-run/react";
 import { type Post } from "../../routes/community._index";
-import styles from "./Post.module.css";
 
 export default function Post({ post }: { post: Post }) {
 	const navigate = useNavigate();
 
 	return (
-		<div className={styles.post}>
+		<div>
 			<header>
-				<Link to={post.username} className={styles.username}>
-					{post.username}
-				</Link>
-				<small className={styles.displayName}>{post.display_name}</small>
+				<Link to={post.username}>{post.username}</Link>
+				<small>{post.display_name}</small>
 			</header>
-			<div
-				onClick={() => navigate(`/${post.username}/${post.id}`)}
-				className={styles.content}
-			>
+			<div onClick={() => navigate(`/${post.username}/${post.id}`)}>
 				<p>{post.content}</p>
 			</div>
 			<footer>

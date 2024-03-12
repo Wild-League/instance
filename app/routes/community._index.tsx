@@ -1,7 +1,6 @@
 import { json } from "@remix-run/node";
 import { Form, Link, useLoaderData } from "@remix-run/react";
 
-import styles from "../styles/community.module.css";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Post from "../components/Post/Post";
 import { useState } from "react";
@@ -61,14 +60,10 @@ export default function Community() {
 	};
 
 	return (
-		<main className={styles.container}>
-			<section className={styles.menu}>
+		<main>
+			<section>
 				<Link to="/waitlist">
-					<img
-						className={styles.logo}
-						src="/alternative-logo.png"
-						alt="WildLeague Logo"
-					/>
+					<img src="/alternative-logo.png" alt="WildLeague Logo" />
 				</Link>
 				<nav>
 					<button onClick={() => setState("posts")} type="button">
@@ -79,20 +74,17 @@ export default function Community() {
 					</button>
 				</nav>
 			</section>
-			<section className={styles.posts}>
+			<section>
 				<Form onSubmit={handleSubmit(submit)}>
 					<textarea
 						{...register("content", { required: true })}
-						className={styles.textbox}
 						placeholder="write something"
 						onInput={handleTextHeight}
 					></textarea>
-					<button className={styles.submit} type="submit">
-						Post
-					</button>
+					<button type="submit">Post</button>
 				</Form>
 				{state === "posts" ? (
-					<div className={styles.listPosts}>
+					<div>
 						{posts.length &&
 							posts.map((post) => (
 								// TODO: fix ts error
@@ -100,7 +92,7 @@ export default function Community() {
 							))}
 					</div>
 				) : (
-					<div className={styles.listCards}>
+					<div>
 						{cards.length &&
 							cards.map((card) => (
 								<p>{card.name}</p>
@@ -109,9 +101,9 @@ export default function Community() {
 					</div>
 				)}
 			</section>
-			<section className={styles.profile}>
-				<strong className={styles.username}>Hello, $username</strong>
-				<div className={styles.profileMenu}>
+			<section>
+				<strong>Hello, $username</strong>
+				<div>
 					<a title="profile" href="#">
 						<img src="/profile.svg" alt="profile icon" />
 					</a>

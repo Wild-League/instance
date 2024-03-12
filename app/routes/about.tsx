@@ -1,9 +1,8 @@
-import Header from "../components/Header/Header";
-import styles from "../styles/about.module.css";
+import Header from "../components/Header";
 
 export default function About() {
 	return (
-		<div className={styles.container}>
+		<div>
 			<Header />
 			<main>
 				<h1>What's Wild League?</h1>
