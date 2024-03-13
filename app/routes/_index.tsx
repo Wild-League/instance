@@ -210,40 +210,20 @@ export default function Home() {
 					{/* cards */}
 					<div className="grid grid-cols-2">
 						<div className="border">
-							<header>Card title 1</header>
-							<p>
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
-								repellat earum, delectus iure minus blanditiis mollitia at
-								accusamus saepe doloremque dicta error dolorem veritatis iusto
-								totam qui architecto facilis. Atque.
-							</p>
+							<header>Card Types</header>
+							<p>Talk about card types here.</p>
 						</div>
 						<div className="border">
-							<header>Card title 2</header>
-							<p>
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
-								repellat earum, delectus iure minus blanditiis mollitia at
-								accusamus saepe doloremque dicta error dolorem veritatis iusto
-								totam qui architecto facilis. Atque.
-							</p>
+							<header>Creations</header>
+							<p>How to create a card, how to create a world, etc</p>
 						</div>
 						<div className="border">
-							<header>Card title 3</header>
-							<p>
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
-								repellat earum, delectus iure minus blanditiis mollitia at
-								accusamus saepe doloremque dicta error dolorem veritatis iusto
-								totam qui architecto facilis. Atque.
-							</p>
+							<header>Trophies</header>
+							<p>how to progress in the game</p>
 						</div>
 						<div className="border">
-							<header>Card title 4</header>
-							<p>
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
-								repellat earum, delectus iure minus blanditiis mollitia at
-								accusamus saepe doloremque dicta error dolorem veritatis iusto
-								totam qui architecto facilis. Atque.
-							</p>
+							<header>Community</header>
+							<p>How interactions in community will happen</p>
 						</div>
 					</div>
 				</div>
