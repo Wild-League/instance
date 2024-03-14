@@ -9,3 +9,7 @@
 	--background-image-home: url('/background.png');
 	--background-image-footer: url('/background-footer.png');
 }
+
+.image-render-pixel {
+	image-rendering: pixelated;
+}

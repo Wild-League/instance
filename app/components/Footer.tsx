@@ -1,10 +1,37 @@
+import { Link } from "@remix-run/react";
+
 export default function Footer() {
 	return (
-		<footer className="bg-bottom bg-footer bg-cover bg-no-repeat h-[45vh]">
-			<img src="/alternative-logo.png" alt="Wild League logo" />
-			<p>iauhsdiaushdiuash</p>
-			<p>iauhsdiaushdiuash</p>
-			<p>iauhsdiaushdiuash</p>
+		<footer className="bg-top bg-footer bg-cover bg-no-repeat grid grid-cols-2 items-center justify-items-center p-4">
+			<img
+				className="w-96 h-96 object-contain"
+				src="/alternative-logo.png"
+				alt="Wild League logo"
+			/>
+			<div className="text-white">
+				<h2 className="text-2xl font-extrabold mb-4">Stay updated!</h2>
+
+				<Link to="mailto:contact@wildleague.org">contact@wildleague.org</Link>
+
+				<div className="flex items-center gap-4 mt-4">
+					<Link
+						target="_blank"
+						to="https://br.linkedin.com/company/wild-league?trk=public_post_feed-actor-name"
+					>
+						<img src="/linkedin.svg" alt="linkedin" />
+					</Link>
+					<Link target="_blank" to="https://github.com/wild-league">
+						<img src="/github.svg" alt="github" />
+					</Link>
+					<Link target="_blank" to="https://twitter.com/_wildleague">
+						<img src="/twitter.svg" alt="twitter/x" />
+					</Link>
+
+					<Link target="_blank" to="https://mastodon.social/@wildleague">
+						<img src="/mastodon.svg" alt="mastodon" />
+					</Link>
+				</div>
+			</div>
 		</footer>
 	);
 }
