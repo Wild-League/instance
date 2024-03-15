@@ -2,13 +2,13 @@ import { Link } from "@remix-run/react";
 
 export default function Footer() {
 	return (
-		<footer className="bg-top bg-footer bg-cover bg-no-repeat grid grid-cols-2 items-center justify-items-center p-4">
+		<footer className="bg-top bg-footer bg-cover bg-no-repeat grid md:grid-cols-2 items-center justify-items-center p-4">
 			<img
-				className="w-96 h-96 object-contain"
+				className="p-10 mt-10 md:w-96 md:h-96 object-contain"
 				src="/alternative-logo.png"
 				alt="Wild League logo"
 			/>
-			<div className="text-white">
+			<div className="text-center text-white p-4">
 				<h2 className="text-2xl font-extrabold mb-4">Stay updated!</h2>
 
 				<Link to="mailto:contact@wildleague.org">contact@wildleague.org</Link>

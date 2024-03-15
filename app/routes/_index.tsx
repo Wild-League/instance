@@ -113,7 +113,7 @@ export default function Home() {
 	};
 
 	return (
-		<main className="font-primary h-[100dvh]">
+		<main className="font-primary">
 			<Header />
 
 			<section className="text-white h-auto overflow-x-hidden grid grid-cols-5 gap-4 items-center justify-items-center bg-[#001a72] bg-cover bg-no-repeat bg-home bg-center h-[70dvh] p-4">
@@ -195,7 +195,7 @@ export default function Home() {
 
 			<section className="px-6 py-8">
 				<div className="grid md:grid-cols-4 gap-4 items-center justify-items-center">
-					<form className="p-14 col-span-2" onSubmit={submit}>
+					<form className="md:p-14 col-span-2" onSubmit={submit}>
 						<legend className="text-3xl font-extrabold mb-4">
 							Join the waitlist!
 						</legend>
@@ -221,7 +221,7 @@ export default function Home() {
 						</button>
 					</form>
 
-					<div className="col-span-2 grid grid-cols-2 gap-2">
+					<div className="col-span-2 grid md:grid-cols-2 gap-2">
 						<Card
 							image="/sword.svg"
 							title="Gameplay"
