@@ -117,7 +117,7 @@ export default function Home() {
 			<Header />
 
 			<section className="text-white h-auto overflow-x-hidden grid grid-cols-5 gap-4 items-center justify-items-center bg-[#001a72] bg-cover bg-no-repeat bg-home bg-center h-[70dvh] p-4">
-				<form onSubmit={submit} className="col-span-3">
+				<form onSubmit={submit} className="col-span-5 md:col-span-3">
 					<legend className="text-4xl font-extrabold mb-4">
 						Gaming isn't just about playing, <br /> it's about community.
 					</legend>
@@ -140,7 +140,7 @@ export default function Home() {
 					</button>
 				</form>
 
-				<div className="m-auto col-span-2 w-[850px]">
+				<div className="hidden md:block m-auto col-span-2 w-[850px]">
 					<img
 						className="image-render-pixel w-full rounded-lg"
 						src="/game-preview.png"
@@ -173,9 +173,9 @@ export default function Home() {
 			</section>
 
 			<section className="p-6 text-center text-white bg-[#001a72]">
-				<div className="grid grid-cols-2 items-center">
+				<div className="grid md:grid-cols-2 items-center">
 					<img
-						className="min-w-[400px] w-[500px] max-w-[600px] p-12"
+						className="justify-self-center w-[220px] md:w-[500px] md:p-12"
 						src="/worlds.png"
 						alt="worlds"
 					/>
@@ -194,7 +194,7 @@ export default function Home() {
 			</section>
 
 			<section className="px-6 py-8">
-				<div className="grid grid-cols-4 gap-4 items-center justify-items-center">
+				<div className="grid md:grid-cols-4 gap-4 items-center justify-items-center">
 					<form className="p-14 col-span-2" onSubmit={submit}>
 						<legend className="text-3xl font-extrabold mb-4">
 							Join the waitlist!
