@@ -4,7 +4,7 @@ export default function Footer() {
 	return (
 		<footer className="bg-top bg-footer bg-cover bg-no-repeat grid md:grid-cols-2 items-center justify-items-center p-4">
 			<img
-				className="p-10 mt-10 md:w-96 md:h-96 object-contain"
+				className="p-10 pb-0 mt-10 md:w-96 md:h-96 object-contain"
 				src="/alternative-logo.png"
 				alt="Wild League logo"
 			/>

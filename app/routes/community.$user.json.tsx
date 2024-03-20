@@ -19,7 +19,7 @@ interface Actor {
 	preferredUsername: string;
 	name: string;
 	summary: string;
-	publicKet: PublicKey;
+	publicKey: PublicKey;
 }
 
 export async function loader({ params }: LoaderFunctionArgs) {

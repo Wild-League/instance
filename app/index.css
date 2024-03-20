@@ -8,6 +8,10 @@
 
 	--background-image-home: url('/background.png');
 	--background-image-footer: url('/background-footer.png');
+
+	--background-image-border-char: url('/borders/border-char.png');
+	--background-image-border-spell: url('/borders/border-spell.png');
+	--background-image-border-building: url('/borders/border-building.png');
 }
 
 .image-render-pixel {

@@ -1,23 +1,19 @@
 import React, { useState } from "react";
 import { Link, MetaFunction, json } from "@remix-run/react";
-
 import type { LinksFunction } from "@remix-run/node";
-import Header from "../components/Header";
-
 import { useLoaderData } from "@remix-run/react";
-import Footer from "../components/Footer";
 import Card from "../components/Card";
 
-interface Deck {
-	id: number;
-	name: string;
-	cards: Card[];
-}
+// interface Deck {
+// 	id: number;
+// 	name: string;
+// 	cards: Card[];
+// }
 
-interface Card {
+export interface CardType {
 	id: number;
 	name: string;
-	type: string;
+	type: "char" | "spell" | "building";
 	cooldown: string;
 	damage: string;
 	attack_range: string;
@@ -31,11 +27,11 @@ interface Card {
 }
 
 export async function loader() {
-	const data = await fetch("https://api.wildleague.org/v1/decks/1/").then(
+	const data = await fetch("https://api.wildleague.org/v1/cards/?limit=3").then(
 		(response) => response.json()
 	);
 
-	return json<Deck>(data);
+	return json<CardType[]>(data);
 }
 
 export const links: LinksFunction = () => {
@@ -94,7 +90,7 @@ export const meta: MetaFunction = () => {
 export default function Home() {
 	const [email, setEmail] = useState("");
 
-	const deck = useLoaderData<typeof loader>();
+	const cards = useLoaderData<typeof loader>();
 
 	const submit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -114,13 +110,20 @@ export default function Home() {
 
 	return (
 		<main className="font-primary">
-			<Header />
-
 			<section className="text-white h-auto overflow-x-hidden grid grid-cols-5 gap-4 items-center justify-items-center bg-[#001a72] bg-cover bg-no-repeat bg-home bg-center h-[70dvh] p-4">
 				<form onSubmit={submit} className="col-span-5 md:col-span-3">
 					<legend className="text-4xl font-extrabold mb-4">
 						Gaming isn't just about playing, <br /> it's about community.
 					</legend>
+
+					<p className="block my-8">
+						<Link
+							className="border p-2 rounded hover:bg-white hover:text-black transition"
+							to="https://discord.gg/5hEJcEfjGF"
+						>
+							Join our server on Discord
+						</Link>
+					</p>
 
 					<label>
 						Join the waitlist to keep up to date with the latest news.
@@ -153,9 +156,9 @@ export default function Home() {
 				<h1 className="text-3xl font-extrabold">Build your deck!</h1>
 
 				<div className="grid grid-cols-3 items-center justify-items-center gap-4 p-6">
-					{deck.cards.map((card) => (
+					{cards.map((card) => (
 						<img
-							className="image-render-pixel rounded-lg w-48"
+							className="first:justify-self-end last:justify-self-start image-render-pixel rounded-lg w-48"
 							key={card.name}
 							src={card.img_card}
 							alt={card.name}
@@ -245,8 +248,6 @@ export default function Home() {
 					</div>
 				</div>
 			</section>
-
-			<Footer />
 		</main>
 	);
 }

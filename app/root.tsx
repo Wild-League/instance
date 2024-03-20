@@ -3,6 +3,8 @@ import { Links, Meta, Outlet, Scripts } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
 import stylesheet from "./index.css?url";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export const links: LinksFunction = () => [
 	{ rel: "stylesheet", href: stylesheet },
@@ -20,8 +22,10 @@ export default function App() {
 				<Links />
 			</head>
 			<body>
+				<Header />
 				<Outlet />
 				<Scripts />
+				<Footer />
 			</body>
 		</html>
 	);

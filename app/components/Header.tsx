@@ -3,14 +3,14 @@ import { Link } from "@remix-run/react";
 export default function Header() {
 	return (
 		<nav className="grid grid-cols-4 items-center bg-[#0a1173] font-primary text-white py-2 px-4">
-			<Link className="justify-self-start" to={"/"}>
+			<Link className="justify-self-start" to="/">
 				<img className="block md:hidden w-16" src="/logo.png" alt="Logo" />
 				<img className="hidden md:block w-64" src="/logo-text.png" alt="Logo" />
 			</Link>
 
 			<div className="hidden md:block justify-self-center space-x-4 md:col-span-2">
 				<Link to={"/cards"}>Cards</Link>
-				<Link to={"/about"}>About</Link>
+				<Link to={"#"}>About</Link>
 				<Link className="pointer-events-none opacity-50" to={"/explore"}>
 					Explore
 				</Link>
