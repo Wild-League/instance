@@ -9,8 +9,8 @@ export default function Header() {
 			</Link>
 
 			<div className="hidden md:block justify-self-center space-x-4 md:col-span-2">
-				<Link to={"/cards"}>Cards</Link>
-				<Link to={"#"}>About</Link>
+				<Link to="/cards">Cards</Link>
+				<Link to="#">About</Link>
 				<Link className="pointer-events-none opacity-50" to={"/explore"}>
 					Explore
 				</Link>
@@ -23,8 +23,8 @@ export default function Header() {
 			</div>
 
 			<div className="justify-self-end space-x-2 col-start-3 col-span-2 md:col-span-1">
-				<Link to={"/signup"}>Sign Up</Link>
-				<Link className="bg-white py-1 px-2 text-black rounded" to={"/login"}>
+				<Link to="#">Sign Up</Link>
+				<Link className="bg-white py-1 px-2 text-black rounded" to="#">
 					Login
 				</Link>
 			</div>
